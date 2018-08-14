@@ -1,6 +1,6 @@
 #!/bin/sh
 BASE_DIR=`dirname "$0"`
-BOOKS_DIR=$BASE_DIR/books
+BOOKS_DIR=$BASE_DIR/source/_posts
 
 MD5CMD=md5sum
 if [ -z `which md5sum` ]; then
@@ -20,4 +20,4 @@ echo Book ID: $ID
 
 echo Generate a book file.
 cp $BOOKS_DIR/.template.md $BOOKS_DIR/$ID.md
-sed "s/{{ title }}/$1/g" $BOOKS_DIR/.template.md > $BOOKS_DIR/$ID.md
+sed "s|{{ title }}|$1|g" $BOOKS_DIR/.template.md > $BOOKS_DIR/$ID.md
